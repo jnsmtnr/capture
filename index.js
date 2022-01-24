@@ -14,7 +14,14 @@ app.get('/', (req, res) => {
 
 app.post('/snap-shot', async (req, res) => {
     try {
-        const base64 = await capture.base64(req.body.url)
+        const base64 = await capture.base64(req.body.url, {
+            launchOptions: {
+                args: [
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox'
+                ]
+            }
+        })
     
         res.json({ status: 'ok', base64 })
     }
