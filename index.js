@@ -8,6 +8,10 @@ const app = express()
 app.use(cors())
 app.use(json())
 
+app.get('/', (req, res) => {
+    res.send('hello there')
+})
+
 app.post('/snap-shot', async (req, res) => {
     try {
         const base64 = await capture.base64(req.body.url)
