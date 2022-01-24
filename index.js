@@ -19,7 +19,7 @@ app.post('/snap-shot', async (req, res) => {
         res.json({ status: 'ok', base64 })
     }
     catch(error) {
-        res.statusCode(500).json({ error: error.message })
+        res.status(500).json({ error: error.message })
     }
 })
 
